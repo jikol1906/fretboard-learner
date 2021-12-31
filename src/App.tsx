@@ -1,5 +1,5 @@
 import React from 'react';
-import StartButton from './features/StartButton/StartButton';
+import StartButton from './components/StartButton/StartButton';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`  
