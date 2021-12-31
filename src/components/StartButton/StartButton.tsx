@@ -1,10 +1,6 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-interface IStartButtonProps {
-}
-
-const StyledStartButton = styled.button`
+export const StartButton = styled.button`
     font-size: 2em;
     letter-spacing: 4px;
     padding: 1.1em 3em;
@@ -21,9 +17,3 @@ const StyledStartButton = styled.button`
         filter: brightness(1.05);
     }
 `
-
-const StartButton: React.FunctionComponent<IStartButtonProps> = (props) => {
-    return <StyledStartButton>{props.children}</StyledStartButton>;
-};
-
-export default StartButton;
