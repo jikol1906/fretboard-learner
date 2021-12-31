@@ -25,9 +25,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
-      <div className="App">
-        
-      </div>
+      <StartButton>Test</StartButton>
     </>
   );
 }
