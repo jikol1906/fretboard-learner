@@ -1,11 +1,20 @@
 import React from 'react';
 import StartButton from './components/StartButton/StartButton';
 import { createGlobalStyle } from 'styled-components';
+import Menu from './containers/Menu/Menu';
 
 const GlobalStyle = createGlobalStyle`  
 
 body, html { 
   font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -38,7 +47,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
-      <StartButton>Test</StartButton>
+      <Menu/>
     </>
   );
 }
