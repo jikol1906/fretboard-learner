@@ -9,6 +9,13 @@ body, html {
   font-family: 'Roboto', sans-serif;
 }
 
+:root {
+  --color-white:#fff;
+  --color-primary:#02AAB0;
+  --color-secondary:#00CDAC;
+  --color-tertiary:#00a0ff;
+}
+
 
 body {
   height:100%;
@@ -19,14 +26,13 @@ body {
 
 
 html {
-    background-color: #0ea389;
     font-family: 'Nanum Gothic', sans-serif;
     height: 100%;
-    background: #02AAB0;
+    background: var(--color-primary);
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);
+    background: -webkit-linear-gradient(to right, var(--color-secondary), var(--color-primary));
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00CDAC, #02AAB0);
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
 
 }
 

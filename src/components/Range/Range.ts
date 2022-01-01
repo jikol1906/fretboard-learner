@@ -24,7 +24,7 @@ export const Range = styled.input`
         appearance: none;
         width: 2.5em;
         height: 2.5em;
-        background: #52a5d6;
+        background: var(--color-tertiary);
         cursor: pointer;
         border-radius: 50px;
     }
