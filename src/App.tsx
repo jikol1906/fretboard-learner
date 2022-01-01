@@ -1,6 +1,7 @@
 import React from 'react';
 import StartButton from './components/StartButton/StartButton';
 import { createGlobalStyle } from 'styled-components';
+import Fretboard from './components/Fretboard/Fretboard';
 import Menu from './containers/Menu/Menu';
 
 const GlobalStyle = createGlobalStyle`  
@@ -53,6 +54,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
+      <Fretboard/>
       <Menu/>
     </>
   );
