@@ -7,13 +7,17 @@ import { RootState } from "../app/store";
 export interface AppState {
   timeBetween: number;
   fretboardRotation:number;
-  pointers: [number,number][]
+  pointers: [number,number][];
+  totalAnswered: number;
+  correctAnswered: number;
 }
 
 const initialState: AppState = {
   timeBetween: 0,
   fretboardRotation:0,
-  pointers:[[0,4]]
+  pointers: [[0, 4]],
+  totalAnswered: 0,
+  correctAnswered: 0,
 };
 
 
@@ -32,10 +36,21 @@ export const appSlice = createSlice({
     setPointers(state,action: PayloadAction<[number,number][]>) {
       state.pointers = action.payload
     },
+    incrementTotalAnswered(state) {
+      state.totalAnswered++;
+    },
+    incrementCorrectAnswered(state) {
+      state.correctAnswered++;
+    }
   },
 });
 
-export const { setTimeBetween,setFretboardRotation,setPointers } = appSlice.actions;
+export const {
+  setTimeBetween,
+  setFretboardRotation,
+  setPointers,
+  incrementTotalAnswered,
+  incrementCorrectAnswered } = appSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -43,6 +58,7 @@ export const { setTimeBetween,setFretboardRotation,setPointers } = appSlice.acti
 export const selectTimeBetween = (state: RootState) => state.app.timeBetween;
 export const selectFretboardRotation = (state: RootState) => state.app.fretboardRotation;
 export const selectPointers = (state: RootState) => state.app.pointers;
+export const selectTotalandCorrectAnswered = (state: RootState) => [state.app.totalAnswered, state.app.correctAnswered];
 
 
 
