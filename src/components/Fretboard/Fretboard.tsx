@@ -1,11 +1,20 @@
 import * as React from 'react';
-import { FretboardContainer } from './FretboardStyles';
+import { useAppSelector } from '../../app/hooks';
+import { selectFretboardRotation, selectPointers } from '../../redux/appSlice';
+import { FretboardContainer, Pointer } from './FretboardStyles';
 
 interface IFretboardProps {
 }
 
 const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const rotation = useAppSelector(selectFretboardRotation);
+    const pointersRedux = useAppSelector(selectPointers);
+
+    const pointers = pointersRedux.map(([x,y]) => {
+        const styles = {'--x':x,'--y':y} as React.CSSProperties
+        return <Pointer style={styles} key={`${x}${y}`}/>
+    })
+
     return (
         <FretboardContainer rotation={rotation}>
             <svg style={{width:'100%',height:'auto'}} id="fretboard" viewBox="0 0 1020 256" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,6 +121,7 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
                     </linearGradient>
                 </defs>
             </svg>
+            {pointers}
         </FretboardContainer>
     );
 };
