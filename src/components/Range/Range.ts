@@ -4,7 +4,7 @@ export const Range = styled.input`
 
     -webkit-appearance: none;
     border-radius: 50px;
-    width: 100%;
+    width: 20em;
     height: 1.56em;
     background: #d3d3d3;
     outline: none;
