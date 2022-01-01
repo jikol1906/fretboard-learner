@@ -5,6 +5,7 @@ import { RootState } from "../app/store";
 
 
 export interface AppState {
+  gameStarted:boolean,
   timeBetween: number;
   fretboardRotation:number;
   pointers: [number,number][];
@@ -13,6 +14,7 @@ export interface AppState {
 }
 
 const initialState: AppState = {
+  gameStarted:false,
   timeBetween: 0,
   fretboardRotation:0,
   pointers: [[0, 4]],
@@ -36,6 +38,9 @@ export const appSlice = createSlice({
     setPointers(state,action: PayloadAction<[number,number][]>) {
       state.pointers = action.payload
     },
+    setGameStarted(state,action: PayloadAction<boolean>) {
+      state.gameStarted = action.payload
+    },
     incrementTotalAnswered(state) {
       state.totalAnswered++;
     },
@@ -49,6 +54,7 @@ export const {
   setTimeBetween,
   setFretboardRotation,
   setPointers,
+  setGameStarted,
   incrementTotalAnswered,
   incrementCorrectAnswered } = appSlice.actions;
 
@@ -58,6 +64,7 @@ export const {
 export const selectTimeBetween = (state: RootState) => state.app.timeBetween;
 export const selectFretboardRotation = (state: RootState) => state.app.fretboardRotation;
 export const selectPointers = (state: RootState) => state.app.pointers;
+export const selectGameStarted = (state: RootState) => state.app.gameStarted;
 export const selectTotalandCorrectAnswered = (state: RootState) => [state.app.totalAnswered, state.app.correctAnswered];
 
 
