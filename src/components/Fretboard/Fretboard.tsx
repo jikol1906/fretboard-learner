@@ -15,8 +15,10 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
         return <Pointer style={styles} key={`${x}${y}`}/>
     })
 
+    const styles = {'--rotation':`${rotation}deg`} as React.CSSProperties
+
     return (
-        <FretboardContainer rotation={rotation}>
+        <FretboardContainer style={styles}>
             <svg style={{width:'100%',height:'auto'}} id="fretboard" viewBox="0 0 1020 256" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4" width="1012" height="256" rx="17" fill="url(#paint0_linear_2025_1202)" />
                 <rect x="87" width="2" height="256" fill="#A8A8A8" />
