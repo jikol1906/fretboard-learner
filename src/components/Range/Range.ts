@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Range = styled.input`
 
     -webkit-appearance: none;
+    font-size:inherit;
     border-radius: 50px;
     width: 20em;
     height: 1.56em;
