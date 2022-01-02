@@ -4,7 +4,7 @@ export function getRandomIntInclusive(min:number, max:number) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
-function generateHalfToneSequenceOfNotes(startNote:string, currentOctave:number, amount:number, withSharps:boolean) {
+export function generateHalfToneSequenceOfNotes(startNote:string, currentOctave:number, amount:number, withSharps:boolean) {
 
     const notes = withSharps ? "A A# B C C# D D# E F F# G G#".split(' ') :
         "A Bb B C Db D Eb E F Gb G Ab".split(' ')
@@ -21,7 +21,7 @@ function generateHalfToneSequenceOfNotes(startNote:string, currentOctave:number,
     return sequence;
 }
 
-function generateStandardTuning() {
+export function generateStandardTuning() {
     return [
         generateHalfToneSequenceOfNotes('E', 5, 12, true),
         generateHalfToneSequenceOfNotes('B', 4, 12, true),
@@ -32,7 +32,7 @@ function generateStandardTuning() {
     ]
 }
 
-function generateStandardTuningFlats() {
+export function generateStandardTuningFlats() {
     return [
         generateHalfToneSequenceOfNotes('E', 5, 12, false),
         generateHalfToneSequenceOfNotes('B', 4, 12, false),
@@ -41,4 +41,35 @@ function generateStandardTuningFlats() {
         generateHalfToneSequenceOfNotes('A', 3, 12, false),
         generateHalfToneSequenceOfNotes('E', 3, 12, false)
     ]
+}
+
+
+/**
+ * generates fretboard in standard tuning as a two dimensional array
+ * notes with more than one name will be an array
+ * @returns 
+ */
+export function generateFretboardWithFlatsAndSharps() {
+    const withSharps = generateStandardTuning()
+    const withFlats = generateStandardTuningFlats()
+    const res : string[][] & string[][][] = [] 
+
+    for (let i = 0; i < withSharps.length; i++) {
+        const string : string[] & string[][] = [];
+        for (let j = 0; j < withSharps[i].length; j++) {
+            if(withSharps[i][j] !== withFlats[i][j]) {
+                string.push([withSharps[i][j],withFlats[i][j]])
+            } else {
+                string.push(withSharps[i][j])
+            }
+            
+        }
+
+        res.push(string)
+        
+    }
+
+    return res
+
+
 }
