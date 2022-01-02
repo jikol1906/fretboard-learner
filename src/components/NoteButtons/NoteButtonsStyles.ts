@@ -14,7 +14,7 @@ export const NoteButtonsContainer = styled.div`
 export const NoteButton = styled.button`
     font-size:3em;
     box-sizing: content-box;
-    width: 5ch;
+    width: 5.4ch;
     cursor:pointer;
     border: calc(var(--border-width) / 2) solid rgba(255,255,255,.4);
     padding:.6em;
