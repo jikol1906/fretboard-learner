@@ -17,6 +17,11 @@ body, html {
   --color-tertiary:#00a0ff;
 }
 
+#root {
+  margin:auto;
+  padding:2rem 0;
+}
+
 
 body {
   height:100%;
