@@ -15,9 +15,9 @@ export interface AppState {
 
 const initialState: AppState = {
   gameStarted:false,
-  timeBetween: 0,
+  timeBetween: 50,
   fretboardRotation:0,
-  pointers: [[0, 4]],
+  pointers: [],
   totalAnswered: 0,
   correctAnswered: 0,
 };

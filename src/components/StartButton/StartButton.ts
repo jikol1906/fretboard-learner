@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StartButton = styled.button`
     font-size: 2em;
+    grid-area:a1;
     letter-spacing: 4px;
     padding: 1.1em 3em;
     cursor: pointer;
