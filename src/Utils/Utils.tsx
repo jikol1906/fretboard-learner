@@ -43,19 +43,23 @@ export function generateStandardTuningFlats() {
     ]
 }
 
+type Note = string;
+type FretboardPosition = Note | [Note,Note]
+type Fretboard = FretboardPosition[][];
+
 
 /**
  * generates fretboard in standard tuning as a two dimensional array
  * notes with more than one name will be an array
  * @returns 
  */
-export function generateFretboardWithFlatsAndSharps() {
+export function generateFretboardWithFlatsAndSharps() : Fretboard {
     const withSharps = generateStandardTuning()
     const withFlats = generateStandardTuningFlats()
-    const res : string[][] & string[][][] = [] 
+    const res : Fretboard = [] 
 
     for (let i = 0; i < withSharps.length; i++) {
-        const string : string[] & string[][] = [];
+        const string : FretboardPosition[] = [];
         for (let j = 0; j < withSharps[i].length; j++) {
             if(withSharps[i][j] !== withFlats[i][j]) {
                 string.push([withSharps[i][j],withFlats[i][j]])
