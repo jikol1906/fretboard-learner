@@ -20,3 +20,25 @@ function generateHalfToneSequenceOfNotes(startNote:string, currentOctave:number,
 
     return sequence;
 }
+
+function generateStandardTuning() {
+    return [
+        generateHalfToneSequenceOfNotes('E', 5, 12, true),
+        generateHalfToneSequenceOfNotes('B', 4, 12, true),
+        generateHalfToneSequenceOfNotes('G', 4, 12, true),
+        generateHalfToneSequenceOfNotes('D', 4, 12, true),
+        generateHalfToneSequenceOfNotes('A', 3, 12, true),
+        generateHalfToneSequenceOfNotes('E', 3, 12, true)
+    ]
+}
+
+function generateStandardTuningFlats() {
+    return [
+        generateHalfToneSequenceOfNotes('E', 5, 12, false),
+        generateHalfToneSequenceOfNotes('B', 4, 12, false),
+        generateHalfToneSequenceOfNotes('G', 4, 12, false),
+        generateHalfToneSequenceOfNotes('D', 4, 12, false),
+        generateHalfToneSequenceOfNotes('A', 3, 12, false),
+        generateHalfToneSequenceOfNotes('E', 3, 12, false)
+    ]
+}
