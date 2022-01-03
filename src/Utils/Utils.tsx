@@ -6,6 +6,24 @@ export function getRandomIntInclusive(min:number, max:number) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
+export function shuffle<T>(array: T[]) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
 export function generateHalfToneSequenceOfNotes(startNote:string, currentOctave:number, amount:number, withSharps:boolean) {
 
     const notes = withSharps ? "A A# B C C# D D# E F F# G G#".split(' ') :
