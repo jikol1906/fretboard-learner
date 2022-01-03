@@ -15,11 +15,13 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
   const dispatch = useAppDispatch()
   const gameStarted = useAppSelector(selectGameStarted);
   
-  useEffect(() => {
-    
+  const res = useMemo<Fretboard>(() => {
+    let toReturn = generateFretboardWithFlatsAndSharps()
+    toReturn.forEach((s) => s.shift());
+    toReturn = toReturn.map(s => s.map(n => n.replace(/\d+/g,"")))
+    return toReturn;
+  },[]);
 
-  const res = generateFretboardWithFlatsAndSharps();
-  res.forEach(s => s.shift())
 
   
   
