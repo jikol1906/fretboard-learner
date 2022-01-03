@@ -62,6 +62,10 @@ export const appSlice = createSlice({
     },
     incrementCorrectAnswered(state) {
       state.correctAnswered++;
+    },
+    resetCorrectAndTotalAnswers(state) {
+      state.correctAnswered = 0;
+      state.totalAnswered = 0;
     }
   },
 });
@@ -75,6 +79,7 @@ export const {
   setCorrectAnswer,
   setWrongAnswerClicked,
   incrementTotalAnswered,
+  resetCorrectAndTotalAnswers,
   incrementCorrectAnswered } = appSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
