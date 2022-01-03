@@ -7,6 +7,7 @@ import { FretboardPosition } from "../Utils/Types";
 
 export interface AppState {
   gameStarted:boolean,
+  wrongAnswerClicked:boolean,
   timeBetween: number;
   fretboardRotation:number;
   pointers: [number,number][];
@@ -18,6 +19,7 @@ export interface AppState {
 
 const initialState: AppState = {
   gameStarted:false,
+  wrongAnswerClicked:false,
   timeBetween: 50,
   fretboardRotation:0,
   pointers: [],
@@ -52,6 +54,9 @@ export const appSlice = createSlice({
     setCorrectAnswer(state,action: PayloadAction<string>) {
       state.correctAnswer = action.payload
     },
+    setWrongAnswerClicked(state,action: PayloadAction<boolean>) {
+      state.wrongAnswerClicked = action.payload
+    },
     incrementTotalAnswered(state) {
       state.totalAnswered++;
     },
@@ -68,6 +73,7 @@ export const {
   setGameStarted,
   setNoteButtonValues,
   setCorrectAnswer,
+  setWrongAnswerClicked,
   incrementTotalAnswered,
   incrementCorrectAnswered } = appSlice.actions;
 
@@ -76,6 +82,7 @@ export const {
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectTimeBetween = (state: RootState) => state.app.timeBetween;
 export const selectFretboardRotation = (state: RootState) => state.app.fretboardRotation;
+export const selectWrongAnswerClicked = (state: RootState) => state.app.wrongAnswerClicked;
 export const selectPointers = (state: RootState) => state.app.pointers;
 export const selectGameStarted = (state: RootState) => state.app.gameStarted;
 export const selectNoteButtons = (state: RootState) => state.app.noteButtonValues;
