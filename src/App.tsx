@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import Fretboard from './components/Fretboard/Fretboard';
-import NoteButtons from './components/NoteButtons/NotesButtons';
 import { StopButton } from './components/StopButton/StopButtonStyles';
 import Game from './containers/Game/Game';
 import Menu from './containers/Menu/Menu';
-import { selectFretboardRotation, selectGameStarted, setGameStarted, setPointers } from './redux/appSlice';
-import { getRandomIntInclusive } from './Utils/Utils';
+import { selectGameStarted, setGameStarted } from './redux/appSlice';
 
 const GlobalStyle = createGlobalStyle`  
 
@@ -57,7 +54,7 @@ html {
       border: none;
       background:transparent;
       outline:none;
-      font-family:inherit
+      font-family:inherit;
       cursor: pointer;
   }
 `
@@ -65,19 +62,6 @@ html {
 function App() {
   const dispatch = useAppDispatch()
   const gameStarted = useAppSelector(selectGameStarted);
-  
-  useEffect(() => {
-    
-
-    
-    setInterval(() => {
-      const randInt1 = getRandomIntInclusive(0,11)
-      const randInt2 = getRandomIntInclusive(0,5)
-  
-      dispatch(setPointers([[randInt1,randInt2]]))
-    },1500)
-    
-  },[])
 
   return (
     <>
