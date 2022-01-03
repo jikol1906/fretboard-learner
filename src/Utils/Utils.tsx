@@ -61,7 +61,7 @@ export function generateFretboardWithFlatsAndSharps() : Fretboard {
         const string : FretboardPosition[] = [];
         for (let j = 0; j < withSharps[i].length; j++) {
             if(withSharps[i][j] !== withFlats[i][j]) {
-                string.push([withSharps[i][j],withFlats[i][j]])
+                string.push(`${withSharps[i][j]}/${withFlats[i][j]}`)
             } else {
                 string.push(withSharps[i][j])
             }
