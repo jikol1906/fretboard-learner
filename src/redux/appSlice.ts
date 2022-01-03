@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
+import { FretboardPosition } from "../Utils/Types";
 
 
 
@@ -9,6 +10,7 @@ export interface AppState {
   timeBetween: number;
   fretboardRotation:number;
   pointers: [number,number][];
+  noteButtonValues:[FretboardPosition,FretboardPosition,FretboardPosition,FretboardPosition]
   totalAnswered: number;
   correctAnswered: number;
 }
@@ -18,6 +20,7 @@ const initialState: AppState = {
   timeBetween: 50,
   fretboardRotation:0,
   pointers: [],
+  noteButtonValues:["","","",""],
   totalAnswered: 0,
   correctAnswered: 0,
 };
@@ -41,6 +44,9 @@ export const appSlice = createSlice({
     setGameStarted(state,action: PayloadAction<boolean>) {
       state.gameStarted = action.payload
     },
+    setNoteButtonValues(state,action: PayloadAction<[FretboardPosition,FretboardPosition,FretboardPosition,FretboardPosition]>) {
+      state.noteButtonValues = action.payload
+    },
     incrementTotalAnswered(state) {
       state.totalAnswered++;
     },
@@ -55,6 +61,7 @@ export const {
   setFretboardRotation,
   setPointers,
   setGameStarted,
+  setNoteButtonValues,
   incrementTotalAnswered,
   incrementCorrectAnswered } = appSlice.actions;
 
@@ -65,6 +72,7 @@ export const selectTimeBetween = (state: RootState) => state.app.timeBetween;
 export const selectFretboardRotation = (state: RootState) => state.app.fretboardRotation;
 export const selectPointers = (state: RootState) => state.app.pointers;
 export const selectGameStarted = (state: RootState) => state.app.gameStarted;
+export const selectNoteButtons = (state: RootState) => state.app.noteButtonValues;
 export const selectTotalandCorrectAnswered = (state: RootState) => [state.app.totalAnswered, state.app.correctAnswered];
 
 
