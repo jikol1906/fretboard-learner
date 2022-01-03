@@ -28,6 +28,10 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   }
 
   useEffect(() => {
+    return () => {dispatch(setWrongAnswerClicked(false))};
+  },[])
+
+  useEffect(() => {
     const handleKeydown = (ev:KeyboardEvent) => {
       switch(ev.key) {
         case '1':         
@@ -52,10 +56,10 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   
   return (
       <NoteButtonsContainer style={{gridArea:'a2'}}>
-          <NoteButton onClick={btnClicked} style={{gridArea:'b1'}}>{b1}</NoteButton>
-          <NoteButton onClick={btnClicked} style={{gridArea:'b2'}}>{b2}</NoteButton>
-          <NoteButton onClick={btnClicked} style={{gridArea:'b3'}}>{b3}</NoteButton>
-          <NoteButton onClick={btnClicked} style={{gridArea:'b4'}}>{b4}</NoteButton>
+          <NoteButton wrong={wrongAnswerClicked} onClick={() => btnClicked(b1)} style={{gridArea:'b1'}}>{b1}</NoteButton>
+          <NoteButton wrong={wrongAnswerClicked} onClick={() => btnClicked(b2)} style={{gridArea:'b2'}}>{b2}</NoteButton>
+          <NoteButton wrong={wrongAnswerClicked} onClick={() => btnClicked(b3)} style={{gridArea:'b3'}}>{b3}</NoteButton>
+          <NoteButton wrong={wrongAnswerClicked} onClick={() => btnClicked(b4)} style={{gridArea:'b4'}}>{b4}</NoteButton>
       </NoteButtonsContainer>
   );
 };

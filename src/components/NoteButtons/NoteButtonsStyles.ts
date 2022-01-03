@@ -11,7 +11,11 @@ export const NoteButtonsContainer = styled.div`
     justify-self:stretch;
 `;
 
-export const NoteButton = styled.button`
+interface NoteButtonProps {
+    wrong:boolean;
+}
+
+export const NoteButton = styled.button<NoteButtonProps>`
     font-size:3em;
     box-sizing: content-box;
     width: 5.4ch;
@@ -20,5 +24,6 @@ export const NoteButton = styled.button`
     padding:.6em;
     color:var(--color-white);
     text-align:center;
+    ${props => props.wrong && 'color : tomato;'}
 `
 
