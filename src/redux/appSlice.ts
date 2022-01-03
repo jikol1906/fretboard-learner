@@ -10,6 +10,7 @@ export interface AppState {
   timeBetween: number;
   fretboardRotation:number;
   pointers: [number,number][];
+  correctAnswer:string;
   noteButtonValues:[FretboardPosition,FretboardPosition,FretboardPosition,FretboardPosition]
   totalAnswered: number;
   correctAnswered: number;
@@ -20,6 +21,7 @@ const initialState: AppState = {
   timeBetween: 50,
   fretboardRotation:0,
   pointers: [],
+  correctAnswer:"",
   noteButtonValues:["","","",""],
   totalAnswered: 0,
   correctAnswered: 0,
@@ -47,6 +49,9 @@ export const appSlice = createSlice({
     setNoteButtonValues(state,action: PayloadAction<[FretboardPosition,FretboardPosition,FretboardPosition,FretboardPosition]>) {
       state.noteButtonValues = action.payload
     },
+    setCorrectAnswer(state,action: PayloadAction<string>) {
+      state.correctAnswer = action.payload
+    },
     incrementTotalAnswered(state) {
       state.totalAnswered++;
     },
@@ -62,6 +67,7 @@ export const {
   setPointers,
   setGameStarted,
   setNoteButtonValues,
+  setCorrectAnswer,
   incrementTotalAnswered,
   incrementCorrectAnswered } = appSlice.actions;
 
@@ -74,6 +80,7 @@ export const selectPointers = (state: RootState) => state.app.pointers;
 export const selectGameStarted = (state: RootState) => state.app.gameStarted;
 export const selectNoteButtons = (state: RootState) => state.app.noteButtonValues;
 export const selectTotalandCorrectAnswered = (state: RootState) => [state.app.totalAnswered, state.app.correctAnswered];
+export const selectCorrectAnswer = (state: RootState) => state.app.correctAnswer;
 
 
 
