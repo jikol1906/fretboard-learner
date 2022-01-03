@@ -1,3 +1,5 @@
+import { Fretboard, FretboardPosition } from "./Types";
+
 export function getRandomIntInclusive(min:number, max:number) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -43,9 +45,6 @@ export function generateStandardTuningFlats() {
     ]
 }
 
-type Note = string;
-type FretboardPosition = Note | [Note,Note]
-type Fretboard = FretboardPosition[][];
 
 
 /**
