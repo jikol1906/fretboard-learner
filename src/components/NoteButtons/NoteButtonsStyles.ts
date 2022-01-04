@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NoteButtonsContainer = styled.div`
     
-    border: 4px solid rgba(255,255,255,.4);
+    border: 0.25em solid rgba(255,255,255,.4);
     border-radius:999px;
     overflow:hidden;
     display:grid;
@@ -25,7 +25,7 @@ export const NoteButton = styled.button<NoteButtonProps>`
     text-align:center;
     ${props => props.wrong && 'color : tomato;'}
     &:not(:last-child) {
-        border-right: 4px solid rgba(255,255,255,.4);
+        border-right: 0.083em solid rgba(255,255,255,.4);
     }
 `
 
