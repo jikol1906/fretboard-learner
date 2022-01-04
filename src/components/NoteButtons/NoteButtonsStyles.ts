@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const NoteButtonsContainer = styled.div`
-    --border-width:.2em;
-    border: var(--border-width) solid rgba(255,255,255,.4);
-    border-radius:10px;
+    
+    border: 4px solid rgba(255,255,255,.4);
+    border-radius:999px;
     overflow:hidden;
     display:grid;
     grid-template-areas:"b1 b2 b3 b4";
@@ -20,10 +20,12 @@ export const NoteButton = styled.button<NoteButtonProps>`
     box-sizing: content-box;
     width: 5.4ch;
     cursor:pointer;
-    border: calc(var(--border-width) / 2) solid rgba(255,255,255,.4);
     padding:.6em;
     color:var(--color-white);
     text-align:center;
     ${props => props.wrong && 'color : tomato;'}
+    &:not(:last-child) {
+        border-right: 4px solid rgba(255,255,255,.4);
+    }
 `
 
