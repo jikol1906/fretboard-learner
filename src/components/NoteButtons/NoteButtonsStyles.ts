@@ -16,11 +16,12 @@ interface NoteButtonProps {
 }
 
 export const NoteButton = styled.button<NoteButtonProps>`
-    font-size:3em;
+    font-size:2.5em;
+    font-weight: 400;
     box-sizing: content-box;
-    width: 5.4ch;
+    width: 5ch;
     cursor:pointer;
-    padding:.6em;
+    padding:.8em;
     color:var(--color-white);
     text-align:center;
     ${props => props.wrong && 'color : tomato;'}
