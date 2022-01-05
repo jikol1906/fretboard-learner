@@ -4,7 +4,6 @@ export const NoteButtonsContainer = styled.div`
     
     border: 0.25em solid rgba(255,255,255,.4);
     border-radius:999px;
-    overflow:hidden;
     display:grid;
     grid-template-areas:"b1 b2 b3 b4";
     grid-template-columns:repeat(4,1fr);
