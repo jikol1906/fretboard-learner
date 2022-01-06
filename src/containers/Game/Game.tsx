@@ -66,7 +66,7 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
       dispatch(setPointers([]));
       clearInterval(intervalId);
     };
-  }, [total,correct]);
+  }, [total]);
 
   useEffect(() => {
     return () => {
