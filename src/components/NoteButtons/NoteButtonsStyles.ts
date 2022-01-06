@@ -26,7 +26,7 @@ export const NoteButton = styled.button<NoteButtonProps>`
     text-align:center;
     ${props => props.wrong && 'color : tomato;'}
     &:not(:last-child) {
-        border-right: 0.083em solid rgba(255,255,255,.4);
+        border-right: 0.1em solid rgba(255,255,255,.4);
     }
 
     &::after {
