@@ -8,7 +8,7 @@ export const StopButton = styled.button`
     top: 0;
     right: 0;
     background-color: transparent;
-    padding:.5em;
+    padding:.8em;
     font-size: 4rem;
     opacity: .5;
     cursor: pointer;
@@ -27,7 +27,7 @@ export const StopButton = styled.button`
         left:50%;
         display: block;
         height:4px;
-        width:20px;
+        width:40px;
 
     }
 
