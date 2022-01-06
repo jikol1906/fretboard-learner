@@ -17,7 +17,7 @@ interface NoteButtonProps {
 export const NoteButton = styled.button<NoteButtonProps>`
     position: relative;
     white-space: nowrap;
-    font-size:2.5em;
+    font-size:3em;
     font-weight: 400;
     box-sizing: content-box;
     width: 5ch;
