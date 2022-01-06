@@ -10,7 +10,7 @@ interface INoteButtonsProps {
 const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
 
   const dispatch = useAppDispatch();
-  const [b1,b2,b3,b4] = useAppSelector(selectNoteButtons);
+  const buttons = useAppSelector(selectNoteButtons);
   const correctAnswer = useAppSelector(selectCorrectAnswer);
   const wrongAnswerClicked = useAppSelector(selectWrongAnswerClicked);
   
@@ -18,6 +18,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   const btn2ref = useRef<HTMLButtonElement>(null)
   const btn3ref = useRef<HTMLButtonElement>(null)
   const btn4ref = useRef<HTMLButtonElement>(null)
+  const [b1,b2,b3,b4] = buttons;
   
 
   const btnClicked = (val:string) => {
