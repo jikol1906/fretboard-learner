@@ -76,7 +76,7 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
 
   return (
     <GameContainer>
-      <Text style={{ gridArea: "a1" }}>
+      <Text fontSize="2em" style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
       <NoteButtons />

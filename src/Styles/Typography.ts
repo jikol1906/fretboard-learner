@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
+interface TextProps {
+    fontSize:string
+}
 
-export const Text = styled.p`
-    font-size:3em;
+export const Text = styled.p<TextProps>`
+    font-size:${({fontSize}) => fontSize};
     font-weight:bold;
     color:var(--color-white);
 `
