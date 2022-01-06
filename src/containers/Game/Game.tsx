@@ -29,7 +29,7 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
   const timeBetween = useAppSelector(selectTimeBetween);
   const [total, correct] = useAppSelector(selectTotalandCorrectAnswered);
 
-  const res = useMemo<Fretboard>(() => {
+  const fretboard = useMemo<Fretboard>(() => {
     let toReturn = generateFretboardWithFlatsAndSharps();
     toReturn.forEach((s) => s.shift());
     toReturn = toReturn.map((s) => s.map((n) => n.replace(/\d+/g, "")));
@@ -37,10 +37,10 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
   }, []);
 
   const newRound = () => {
-    const randInt1 = getRandomIntInclusive(0, res[0].length - 1);
-    const randInt2 = getRandomIntInclusive(0, res.length - 1);
-    const correctAnswer = res[randInt2][randInt1];
-    const string = res[randInt2].slice().filter((n) => n !== correctAnswer);
+    const randInt1 = getRandomIntInclusive(0, fretboard[0].length - 1);
+    const randInt2 = getRandomIntInclusive(0, fretboard.length - 1);
+    const correctAnswer = fretboard[randInt2][randInt1];
+    const string = fretboard[randInt2].slice().filter((n) => n !== correctAnswer);
     dispatch(setCorrectAnswer(correctAnswer));
     shuffle(string);
   
@@ -53,7 +53,7 @@ const Game: React.FunctionComponent<IGameProps> = (props) => {
     shuffle(notesForAnswerButtons);
   
     dispatch(setNoteButtonValues(notesForAnswerButtons));
-    dispatch(setCorrectAnswer(res[randInt2][randInt1]));
+    dispatch(setCorrectAnswer(fretboard[randInt2][randInt1]));
     dispatch(setPointers([[randInt1, randInt2]]));
   }
 
