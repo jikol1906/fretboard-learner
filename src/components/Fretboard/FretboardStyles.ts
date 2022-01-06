@@ -5,10 +5,10 @@ import styled, { keyframes } from "styled-components";
 export const FretboardContainer = styled.div`
     margin: 0 auto;
     margin-bottom: 4em;
-    width: 63.25em;
+    width: calc(63.25em - var(--rotation) * .1em);
     position: relative;
     font-size: min(1.3vw,1rem);
-    transform: perspective(550px) rotateX(var(--rotation));
+    transform: perspective(500px) rotateX(calc(var(--rotation) * 1deg));
 `
 
 const pulse = keyframes`

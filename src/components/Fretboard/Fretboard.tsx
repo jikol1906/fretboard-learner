@@ -15,7 +15,7 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
         return <Pointer style={styles} key={`${x}${y}`}/>
     })
 
-    const styles = {'--rotation':`${rotation}deg`} as React.CSSProperties
+    const styles = {'--rotation':`${rotation}`} as React.CSSProperties
 
     return (
         <FretboardContainer style={styles}>
