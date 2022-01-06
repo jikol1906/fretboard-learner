@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
-import { NoteButton, NoteButtonsContainer } from './NoteButtonsStyles';
+import { NoteButton, NoteButtonsContainer, NoteWithSymbol,Symbol } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
 }
@@ -18,8 +18,28 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   const btn2ref = useRef<HTMLButtonElement>(null)
   const btn3ref = useRef<HTMLButtonElement>(null)
   const btn4ref = useRef<HTMLButtonElement>(null)
-  const [b1,b2,b3,b4] = buttons;
   
+  const [b1,b2,b3,b4] = buttons.map(b => {
+    if(b.includes("#")) {
+      const [sharp,flat] = b.split("/")
+      
+      return (
+        <>
+          <NoteWithSymbol>
+            {sharp[0]}
+            <Symbol>♯</Symbol>
+          </NoteWithSymbol>
+          /
+          <NoteWithSymbol>
+          {flat[0]}
+          <Symbol>♭</Symbol>
+          </NoteWithSymbol>
+      </>
+      )
+      
+    }
+    return b;
+  });
 
   const btnClicked = (val:string) => {
     
@@ -59,14 +79,14 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
     return () => {
       document.removeEventListener('keydown',handleKeydown)
     }
-  },[b1,b2,b3,b4])
+  },buttons)
   
   return (
       <NoteButtonsContainer style={{gridArea:'a2'}}>
-          <NoteButton ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(b1)} style={{gridArea:'b1'}}>{b1}</NoteButton>
-          <NoteButton ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(b2)} style={{gridArea:'b2'}}>{b2}</NoteButton>
-          <NoteButton ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(b3)} style={{gridArea:'b3'}}>{b3}</NoteButton>
-          <NoteButton ref={btn4ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(b4)} style={{gridArea:'b4'}}>{b4}</NoteButton>
+          <NoteButton ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</NoteButton>
+          <NoteButton ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</NoteButton>
+          <NoteButton ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</NoteButton>
+          <NoteButton ref={btn4ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</NoteButton>
       </NoteButtonsContainer>
   );
 };

@@ -16,6 +16,7 @@ interface NoteButtonProps {
 
 export const NoteButton = styled.button<NoteButtonProps>`
     position: relative;
+    white-space: nowrap;
     font-size:2.5em;
     font-weight: 400;
     box-sizing: content-box;
@@ -43,5 +44,19 @@ export const NoteButton = styled.button<NoteButtonProps>`
     &:nth-child(2)::after {content: "2";}
     &:nth-child(3)::after {content: "3";}
     &:nth-child(4)::after {content: "4";}
+`
+
+export const NoteWithSymbol = styled.span`
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    width: 2.4ch;
+`
+
+export const Symbol = styled.span`
+  position: absolute;
+    font-size: 0.6em;
+    top: 40.2%;
+    left: 43%;
 `
 
