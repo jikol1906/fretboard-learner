@@ -6,9 +6,10 @@ import AccidentalNote from '../Note/AccidentalNote';
 import { NoteButton, NoteButtonsContainer, NoteWithSymbol,Symbol } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
+  disabled:boolean
 }
 
-const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
+const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => {
 
   const dispatch = useAppDispatch();
   const buttons = useAppSelector(selectNoteButtons);
@@ -77,10 +78,10 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   
   return (
       <NoteButtonsContainer style={{gridArea:'a2'}}>
-          <NoteButton ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</NoteButton>
-          <NoteButton ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</NoteButton>
-          <NoteButton ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</NoteButton>
-          <NoteButton ref={btn4ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</NoteButton>
+          <NoteButton disabled={disabled} ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</NoteButton>
+          <NoteButton disabled={disabled} ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</NoteButton>
+          <NoteButton disabled={disabled} ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</NoteButton>
+          <NoteButton disabled={disabled} ref={btn4ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</NoteButton>
       </NoteButtonsContainer>
   );
 };

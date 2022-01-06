@@ -30,6 +30,11 @@ export const NoteButton = styled.button<NoteButtonProps>`
         border-right: 0.1em solid rgba(255,255,255,.4);
     }
 
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+
     &::after {
         position: absolute;
         box-sizing: border-box;
