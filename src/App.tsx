@@ -14,6 +14,8 @@ body, html {
 
 :root {
   --color-white:#fff;
+  --color-grey:#d3d3d3;
+  --color-grey-secondary:#696969;
   --color-primary:#02AAB0;
   --color-secondary:#00CDAC;
   --color-tertiary:#00a0ff;
