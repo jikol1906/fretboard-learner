@@ -7,7 +7,7 @@ export const Range = styled.input`
     border-radius: 50px;
     width: 20em;
     height: 1.56em;
-    background: #d3d3d3;
+    background: var(--color-grey);
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -34,7 +34,7 @@ export const Range = styled.input`
         border-radius: 50px;
         width: 2.5em;
         height: 2.5em;
-        background: #52a5d6;
+        background: var(--color-tertiary);
         cursor: pointer;
     }
 `

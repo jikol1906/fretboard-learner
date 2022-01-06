@@ -21,7 +21,7 @@ export const StopButton = styled.button`
     &:before,
     &:after {
         content:'';
-        background-color: #6C504C;
+        background-color: var(--color-grey-secondary);
         position: absolute;
         top:50%;
         left:50%;
