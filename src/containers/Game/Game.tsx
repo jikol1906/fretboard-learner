@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useEffect, useMemo } from "react";
+import useCountDown from "react-countdown-hook";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import NoteButtons from "../../components/NoteButtons/NotesButtons";
 import {
@@ -34,6 +35,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   const gameStarted = useAppSelector(selectGameStarted);
   const timeBetween = useAppSelector(selectTimeBetween);
   const [total, correct] = useAppSelector(selectTotalandCorrectAnswered);
+  const [timeLeft, { start }] = useCountDown(60000, 1000);
 
 
 
@@ -70,6 +72,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   }, [total]);
 
   useEffect(() => {
+    start();
     return () => {
       dispatch(resetCorrectAndTotalAnswers())
     }
@@ -80,7 +83,10 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       <Text fontSize="2em" style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
-      <NoteButtons />
+      <NoteButtons disabled={timeLeft/1000 <= 0}/>
+      <Text fontSize="2em" style={{ gridArea: "a3" }}>
+        {timeLeft/1000}
+      </Text>
     </GameContainer>
   );
 };
