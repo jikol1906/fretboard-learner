@@ -23,18 +23,19 @@ import { GameContainer } from "./GameStyles";
 
 interface IGameProps {}
 
-const Game: React.FunctionComponent<IGameProps> = (props) => {
+let fretboard = generateFretboardWithFlatsAndSharps();
+fretboard.forEach((s) => s.shift());
+fretboard = fretboard.map((s) => s.map((n) => n.replace(/\d+/g, "")));
+
+
+
+const Game: React.FunctionComponent<IGameProps> = () => {
   const dispatch = useAppDispatch();
   const gameStarted = useAppSelector(selectGameStarted);
   const timeBetween = useAppSelector(selectTimeBetween);
   const [total, correct] = useAppSelector(selectTotalandCorrectAnswered);
 
-  const fretboard = useMemo<Fretboard>(() => {
-    let toReturn = generateFretboardWithFlatsAndSharps();
-    toReturn.forEach((s) => s.shift());
-    toReturn = toReturn.map((s) => s.map((n) => n.replace(/\d+/g, "")));
-    return toReturn;
-  }, []);
+
 
   const newRound = () => {
     const randInt1 = getRandomIntInclusive(0, fretboard[0].length - 1);
