@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useAppSelector } from '../../app/hooks';
 import { selectFretboardRotation, selectPointers } from '../../redux/appSlice';
-import { FretboardContainer, Pointer } from './FretboardStyles';
+import { FretboardContainer, FretboardFixedHeightContainer, Pointer } from './FretboardStyles';
 import FretboardSvg from './FretboardSvg';
 
 interface IFretboardProps {
@@ -19,10 +19,12 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const styles = {'--rotation':`${rotation}`} as React.CSSProperties
 
     return (
-        <FretboardContainer style={styles}>
-            <FretboardSvg/>
-            {pointers}
-        </FretboardContainer>
+        <FretboardFixedHeightContainer>
+            <FretboardContainer style={styles}>
+                <FretboardSvg/>
+                {pointers}
+            </FretboardContainer>
+        </FretboardFixedHeightContainer>
     );
 };
 
