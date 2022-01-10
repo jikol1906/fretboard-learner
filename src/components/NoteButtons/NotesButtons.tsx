@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
+import AccidentalNote from '../Note/AccidentalNote';
 import { NoteButton, NoteButtonsContainer, NoteWithSymbol,Symbol } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
@@ -21,21 +22,14 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = (props) => {
   
   const [b1,b2,b3,b4] = buttons.map(b => {
     if(b.includes("#")) {
-      const [sharp,flat] = b.split("/")
-      
+      const [sharp, flat] = b.split("/");
       return (
         <>
-          <NoteWithSymbol>
-            {sharp[0]}
-            <Symbol>♯</Symbol>
-          </NoteWithSymbol>
+          <AccidentalNote note={sharp[0]} sharp />
           /
-          <NoteWithSymbol>
-          {flat[0]}
-          <Symbol>♭</Symbol>
-          </NoteWithSymbol>
-      </>
-      )
+          <AccidentalNote note={flat[0]} />
+        </>
+      );
       
     }
     return b;
