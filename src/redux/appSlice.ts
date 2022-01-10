@@ -7,6 +7,7 @@ import { FretboardPosition } from "../Utils/Types";
 
 export interface AppState {
   gameStarted:boolean,
+  practiceMode:boolean,
   wrongAnswerClicked:boolean,
   timeBetween: number;
   fretboardRotation:number;
@@ -19,6 +20,7 @@ export interface AppState {
 
 const initialState: AppState = {
   gameStarted:false,
+  practiceMode:false,
   wrongAnswerClicked:false,
   timeBetween: 50,
   fretboardRotation:0,
@@ -57,6 +59,9 @@ export const appSlice = createSlice({
     setWrongAnswerClicked(state,action: PayloadAction<boolean>) {
       state.wrongAnswerClicked = action.payload
     },
+    setPracticemode(state,action: PayloadAction<boolean>) {
+      state.practiceMode = action.payload
+    },
     incrementTotalAnswered(state) {
       state.totalAnswered++;
     },
@@ -78,6 +83,7 @@ export const {
   setNoteButtonValues,
   setCorrectAnswer,
   setWrongAnswerClicked,
+  setPracticemode,
   incrementTotalAnswered,
   resetCorrectAndTotalAnswers,
   incrementCorrectAnswered } = appSlice.actions;
@@ -86,6 +92,7 @@ export const {
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectTimeBetween = (state: RootState) => state.app.timeBetween;
+export const selectPracticeMode = (state: RootState) => state.app.practiceMode;
 export const selectFretboardRotation = (state: RootState) => state.app.fretboardRotation;
 export const selectWrongAnswerClicked = (state: RootState) => state.app.wrongAnswerClicked;
 export const selectPointers = (state: RootState) => state.app.pointers;
