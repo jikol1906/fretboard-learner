@@ -6,10 +6,10 @@ import { Text } from "../../Styles/Typography";
       onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     }
 
-    const Checkbox: React.FunctionComponent<ICheckboxProps> = ({...rest}) => {
+    const Checkbox: React.FunctionComponent<ICheckboxProps> = ({style,...rest}) => {
       
       return (
-        <CheckboxLabel>
+        <CheckboxLabel style={style}>
           <input type="checkbox" {...rest}/>
           <StyledSlider/>
         </CheckboxLabel>
