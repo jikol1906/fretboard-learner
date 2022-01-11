@@ -16,9 +16,25 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   const rotation = useAppSelector(selectFretboardRotation);
   const timebetween = useAppSelector(selectTimeBetween);
   const dispatch = useAppDispatch();
+
+  const gridAreas = [
+    `
+    "a2"
+    "l1"
+    "i1"
+    "l2"
+    "i2"
+    `,
+    `
+    "l1 a2"
+    "i1 a2"
+    "l2 a2"
+    "i2 a2"
+    `
+  ]
   
   return (
-      <StyledMenu>
+      <StyledMenu gridTemplateAreas={gridAreas} justifyContent="center" alignItems="center" justifyItems="center">
           <Label style={{gridArea:'l1'}} htmlFor="rotation">Fretboard rotation</Label>
           <Range  style={{gridArea:'i1'}} onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
           <Button style={{gridArea:'a2'}} ml={[null,'2em']} fontSize='1.5em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
