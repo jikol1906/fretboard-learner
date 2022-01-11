@@ -28,10 +28,6 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
             <Label htmlFor="checkbox">Practice mode</Label>
             <Checkbox id="checkbox" onChange={(e) => dispatch(setPracticemode(e.target.checked))}/>
           </div>
-          <div style={{gridArea:'a4'}}>
-            <Label htmlFor="timebetween">Time between notes: {timebetween / 10}</Label>  
-            <Range  onChange={e => dispatch(setTimeBetween(+e.target.value))} type="range" min="10" max="100" value={timebetween} step="5" id="timebetween"/>
-          </div>
       </StyledMenu>
   );
 };
