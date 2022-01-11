@@ -28,8 +28,6 @@ export const StyledSlider = styled.span`
 export const CheckboxLabel = styled.label`
   display: inline-flex;
   align-items: center;
-  opacity: 0.7;
-  transition: opacity .2s;
   cursor: pointer;
   --slider-container-height: 1.56em;
   --slider-container-width: calc(var(--slider-container-height) * 2);
@@ -40,9 +38,6 @@ export const CheckboxLabel = styled.label`
     display: none;
   }
 
-  &:hover {
-    opacity: 1;
-  }
 
   & input:checked + ${StyledSlider} {
     background-color: var(--color-tertiary);
