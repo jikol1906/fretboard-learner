@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
 import AccidentalNote from '../Note/AccidentalNote';
-import { NoteButton, NoteButtonsContainer, NoteWithSymbol,Symbol } from './NoteButtonsStyles';
+import { NoteButton, NoteButtonsContainer } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
   disabled:boolean
