@@ -6,7 +6,7 @@ export const StyledSlider = styled.span`
   border-radius: 100vh;
   height: var(--slider-container-height);
   width: var(--slider-container-width);
-  background-color: #ccc;
+  background-color: var(--color-grey);
   display: flex;
   align-items: center;
   padding: 0 var(--slider-padding);
@@ -18,7 +18,7 @@ export const StyledSlider = styled.span`
     content: "";
     border-radius: 50%;
     display: block;
-    background: #fff;
+    background: var(--color-white);
     height: var(--slider-size);
     width: var(--slider-size);
     transition: inherit;
