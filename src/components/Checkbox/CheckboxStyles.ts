@@ -31,7 +31,7 @@ export const CheckboxLabel = styled.label`
   opacity: 0.7;
   transition: opacity .2s;
   cursor: pointer;
-  --slider-container-height: 2em;
+  --slider-container-height: 1.56em;
   --slider-container-width: calc(var(--slider-container-height) * 2);
   --slider-size: calc(var(--slider-container-height) * 0.7);
   --slider-padding: calc(var(--slider-container-height) * 0.15);
