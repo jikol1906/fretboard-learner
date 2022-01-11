@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import {space,SpaceProps} from 'styled-system';
+import {space,SpaceProps, gridArea, GridAreaProps} from 'styled-system';
 
-export const Button = styled.button<{ fontSize: string } & SpaceProps>`
+
+export const Button = styled.button<{ fontSize: string } & SpaceProps & GridAreaProps>`
   font-size: ${props => props.fontSize};
   ${space}
+  ${gridArea}
   letter-spacing: 4px;
   padding: 1.1em 3em;
   cursor: pointer;

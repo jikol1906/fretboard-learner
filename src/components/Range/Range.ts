@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import {gridArea, GridAreaProps} from 'styled-system';
 
-export const Range = styled.input`
-
+export const Range = styled.input<GridAreaProps>`
+    ${gridArea}
     -webkit-appearance: none;
     font-size:inherit;
     border-radius: 50px;
