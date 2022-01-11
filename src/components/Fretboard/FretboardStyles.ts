@@ -1,13 +1,14 @@
 import styled, { keyframes } from "styled-components";
+import {space, SpaceProps } from "styled-system";
 
-export const FretboardFixedHeightContainer = styled.div`
-    height: 20em;
+export const FretboardFixedHeightContainer = styled.div<SpaceProps>`
+    ${space}
+    height: 16em;
     font-size: min(1.4vw,1rem);
 `
 
 export const FretboardContainer = styled.div`
     margin: 0 auto;
-    margin-bottom: 4em;
     width: calc(63.25em - var(--rotation) * .1em);
     position: relative;
     transform: perspective(500px) rotateX(calc(var(--rotation) * 1deg));

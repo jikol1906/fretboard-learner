@@ -19,7 +19,7 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const styles = {'--rotation':`${rotation}`} as React.CSSProperties
 
     return (
-        <FretboardFixedHeightContainer>
+        <FretboardFixedHeightContainer mb="3em">
             <FretboardContainer style={styles}>
                 <FretboardSvg/>
                 {pointers}
