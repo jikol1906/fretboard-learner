@@ -19,11 +19,11 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   
   return (
       <StyledMenu>
-          <Button style={{gridArea:'a1'}} fontSize='1.5em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
-          <div style={{gridArea:'a2'}}>
+          <div style={{gridArea:'a1'}}>
             <Label htmlFor="rotation">Fretboard rotation</Label>
             <Range  onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
           </div>
+          <Button style={{gridArea:'a2'}} fontSize='1.5em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
           <div style={{gridArea:'a3', textAlign:'center'}}>
             <Label htmlFor="checkbox">Practice mode</Label>
             <Checkbox id="checkbox" onChange={(e) => dispatch(setPracticemode(e.target.checked))}/>
