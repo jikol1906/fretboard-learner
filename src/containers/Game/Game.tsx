@@ -4,7 +4,6 @@ import useCountDown from "react-countdown-hook";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import NoteButtons from "../../components/NoteButtons/NotesButtons";
 import {
-  incrementTotalAnswered,
   resetCorrectAndTotalAnswers,
   selectGameStarted,
   selectTimeBetween,
@@ -61,19 +60,15 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   }
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      dispatch(incrementTotalAnswered())
-    }, timeBetween * 100);
     newRound();
     return () => {
-      dispatch(setPointers([]));
-      clearInterval(intervalId);
     };
   }, [total]);
 
   useEffect(() => {
     start();
     return () => {
+      dispatch(setPointers([]))
       dispatch(resetCorrectAndTotalAnswers())
     }
   },[])
