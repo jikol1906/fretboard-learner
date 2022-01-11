@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import useCountDown from "react-countdown-hook";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import NoteButtons from "../../components/NoteButtons/NotesButtons";
@@ -13,7 +13,6 @@ import {
   setPointers,
 } from "../../redux/appSlice";
 import { Text } from "../../Styles/Typography";
-import { Fretboard } from "../../Utils/Types";
 import {
   generateFretboardWithFlatsAndSharps,
   getRandomIntInclusive,
@@ -31,8 +30,6 @@ fretboard = fretboard.map((s) => s.map((n) => n.replace(/\d+/g, "")));
 
 const Game: React.FunctionComponent<IGameProps> = () => {
   const dispatch = useAppDispatch();
-  const gameStarted = useAppSelector(selectGameStarted);
-  const timeBetween = useAppSelector(selectTimeBetween);
   const [total, correct] = useAppSelector(selectTotalandCorrectAnswered);
   const [timeLeft, { start }] = useCountDown(60000, 1000);
 
