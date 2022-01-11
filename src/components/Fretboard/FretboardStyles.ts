@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const FretboardFixedHeightContainer = styled.div`
     height: 20em;
-    font-size: min(1.3vw,1rem);
+    font-size: min(1.4vw,1rem);
 `
 
 export const FretboardContainer = styled.div`
