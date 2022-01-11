@@ -4,13 +4,14 @@ export const StyledMenu = styled.div`
     display: grid;
     padding: 0 2em;
     grid-template-areas: 
-        "a1 a2"
-        "a3 a2";
-    grid-template-columns: repeat(2,auto);
-    
+        "l1 a2"
+        "i1 a2"
+        "l2 a2"
+        "i2 a2";
+    justify-items: center;
     align-items: center;
     justify-content: center;
     font-size: min(1.7vw,1rem);
-    grid-row-gap: 3em;
-    grid-column-gap: 5em;
+    grid-row-gap: 2em;
+    grid-column-gap: 4em;
 `
