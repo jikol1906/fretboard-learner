@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { Button } from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import { Label } from '../../components/Label/Label';
 import { Range } from '../../components/Range/Range';
-import { StartButton } from '../../components/StartButton/StartButton';
 import { selectFretboardRotation, selectTimeBetween, setFretboardRotation, setGameStarted, setPracticemode, setTimeBetween } from '../../redux/appSlice';
 import { StyledMenu } from './MenuStyles';
 
@@ -19,7 +19,7 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   
   return (
       <StyledMenu>
-          <StartButton onClick={e => dispatch(setGameStarted(true))}>START</StartButton>
+          <Button style={{gridArea:'a1'}} fontSize='1.5em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
           <div style={{gridArea:'a2'}}>
             <Label htmlFor="rotation">Fretboard rotation</Label>
             <Range  onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
