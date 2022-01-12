@@ -12,6 +12,9 @@ declare module "styled-components" {
         secondary:string,
         tertiary:string,
       }
+      fonts:{
+        primary:string
+      }
     }
 }
 
@@ -26,7 +29,12 @@ const colors = {
     tertiary:"#00a0ff",
 }
 
+const fonts = {
+  primary:"'Nanum Gothic', sans-serif"
+}
+
 export default {
     breakpoints,
     colors,
+    fonts
 } as DefaultTheme
