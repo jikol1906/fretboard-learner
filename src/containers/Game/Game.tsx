@@ -4,12 +4,14 @@ import useCountDown from "react-countdown-hook";
 import { Text } from "rebass/styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import NoteButtons from "../../components/NoteButtons/NotesButtons";
+import { StopButton } from "../../components/StopButton/StopButtonStyles";
 import {
   resetCorrectAndTotalAnswers,
   selectGameStarted,
   selectTimeBetween,
   selectTotalandCorrectAnswered,
   setCorrectAnswer,
+  setGameStarted,
   setNoteButtonValues,
   setPointers,
 } from "../../redux/appSlice";
@@ -72,6 +74,14 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   },[])
 
   return (
+    <>
+    <StopButton 
+        position="fixed" 
+        top="0" 
+        right="0" 
+        p={[".6em",".8em"]} 
+        bg="transparent" 
+        onClick={_ => dispatch(setGameStarted(false))}/>
     <Grid
       fontSize="min(1.3vw,1.7rem)"
       gridGap="3em"
@@ -88,6 +98,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
         {timeLeft/1000}
       </Text>
     </Grid>
+    </>
   );
 };
 
