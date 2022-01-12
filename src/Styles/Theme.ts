@@ -1,3 +1,20 @@
+import { DefaultTheme } from "styled-components"
+
+declare module "styled-components" {
+    export interface DefaultTheme {
+      breakpoints: string[],
+      colors: {
+        white:string,
+        dimWhite:string,
+        grey:string,
+        greySecondary:string,
+        primary:string,
+        secondary:string,
+        tertiary:string,
+      }
+    }
+}
+
 const breakpoints = ['40em', '52em', '64em', '80em']
 const colors = {
     white:"#fff",
@@ -9,8 +26,7 @@ const colors = {
     tertiary:"#00a0ff",
 }
 
-
 export default {
     breakpoints,
-    colors
-}
+    colors,
+} as DefaultTheme
