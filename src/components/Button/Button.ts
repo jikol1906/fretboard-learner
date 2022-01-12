@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {space,SpaceProps, gridArea, GridAreaProps} from 'styled-system';
+import { GridItem } from "../../Styles/BaseStyles";
 
 
-export const Button = styled.button<{ fontSize: string } & SpaceProps & GridAreaProps>`
+export const Button = styled(GridItem).attrs({as:'button'})<{ fontSize: string } & SpaceProps>`
   font-size: ${props => props.fontSize};
   ${space}
-  ${gridArea}
   letter-spacing: 4px;
   padding: 1.1em 3em;
   cursor: pointer;

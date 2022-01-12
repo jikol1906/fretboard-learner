@@ -1,4 +1,5 @@
     import * as React from "react";
+import { GridAreaProps } from "styled-system";
 import { Text } from "../../Styles/Typography";
     import { CheckboxLabel, StyledSlider } from "./CheckboxStyles";
 
@@ -6,7 +7,7 @@ import { Text } from "../../Styles/Typography";
       onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     }
 
-    const Checkbox: React.FunctionComponent<ICheckboxProps> = ({style,...rest}) => {
+    const Checkbox: React.FunctionComponent<ICheckboxProps & GridAreaProps> = ({style,gridArea,...rest}) => {
       
       return (
         <CheckboxLabel style={style}>
