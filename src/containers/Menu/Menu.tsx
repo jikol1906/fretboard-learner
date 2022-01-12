@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { Button } from '../../components/Button/Button';
+import Button from '../../components/Button/Button';
+
 import Checkbox from '../../components/Checkbox/Checkbox';
 import { Label } from '../../components/Label/Label';
 import { Range } from '../../components/Range/Range';
@@ -44,7 +45,7 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
       > 
           <Label gridArea="l1" htmlFor="rotation">Fretboard rotation</Label>
           <Range  gridArea="i1" onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
-          <Button gridArea="a2" fontSize='2em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
+          <Button fontSize="2em" style={{gridArea:'a2', letterSpacing:"4px"}} onClick={e => dispatch(setGameStarted(true))}>START</Button>
           <Label gridArea="l2" htmlFor="checkbox">Practice mode</Label>
           <Checkbox style={{gridArea:'i2'}} id="checkbox" onChange={(e) => dispatch(setPracticemode(e.target.checked))}/>
       </Grid>
