@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from 'rebass/styled-components';
 import { useAppSelector } from '../../app/hooks';
-import { selectFretboardRotation, selectPointers } from '../../redux/appSlice';
+import { selectFretboardRotation, selectGameStarted, selectPointers } from '../../redux/appSlice';
 
 import { FretboardContainer, Pointer } from './FretboardStyles';
 import FretboardSvg from './FretboardSvg';
@@ -12,6 +12,7 @@ interface IFretboardProps {
 const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const rotation = useAppSelector(selectFretboardRotation);
     const pointersRedux = useAppSelector(selectPointers);
+    const gameStarted = useAppSelector(selectGameStarted);
 
     const pointers = pointersRedux.map(([x,y]) => {
         const styles = {'--x':x,'--y':y} as React.CSSProperties
@@ -21,7 +22,7 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const styles = {'--rotation':`${rotation}`} as React.CSSProperties
 
     return (
-        <Box mb="4em" height="16em" fontSize="min(1.4vw,1rem)">
+        <Box mb={gameStarted ? "2em" : ["7em","4em"]} height="16em" fontSize="min(1.4vw,1rem)">
             <FretboardContainer style={styles}>
                 <FretboardSvg/>
                 {pointers}
