@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
+import { Button } from 'rebass/styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
 import AccidentalNote from '../Note/AccidentalNote';
-import { NoteButton, NoteButtonsContainer } from './NoteButtonsStyles';
+import { NoteButtonsContainer } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
   disabled:boolean
@@ -75,6 +76,47 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
       document.removeEventListener('keydown',handleKeydown)
     }
   },buttons)
+
+  const notebuttonProps = {
+    disabled,
+    fontSize:"3em",
+    p:".8em",
+    width:"5ch",
+    bg:"transparent",
+    color: wrongAnswerClicked ? "red" : "white",
+    sx: {
+      boxSizing:'content-box',
+      cursor:'pointer',
+      position: 'relative',
+      whiteSpace: 'nowrap',
+      '&:not(:last-child)': {
+        borderRightWidth: '0.1em',
+        borderStyle: 'solid',
+        borderColor: 'dimWhite',
+        borderRadius:0
+      },
+      '&:disabled': {
+        opacity: '.5',
+        cursor: 'not-allowed'
+      },
+      '&::after': {
+        content:"''",
+        position:" absolute",
+        boxSizing: 'border-box',
+        color:"white",
+        borderRadius: '100px',
+        left:'50%',
+        top:'120%',
+        transform:'translateX(-50%)',
+        fontSize:'.5em'
+    },
+    '&:nth-child(1)::after': {content: "'1'"},
+    '&:nth-child(2)::after': {content: "'2'"},
+    '&:nth-child(3)::after': {content: "'3'"},
+    '&:nth-child(4)::after': {content: "'4'"}
+  }
+    
+  }
   
   return (
       <NoteButtonsContainer 
@@ -82,10 +124,10 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
         gridTemplateAreas="'b1 b2 b3 b4'"
         gridTemplateColumns="repeat(4,1fr)"
       >
-          <NoteButton disabled={disabled} ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</NoteButton>
-          <NoteButton disabled={disabled} ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</NoteButton>
-          <NoteButton disabled={disabled} ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</NoteButton>
-          <NoteButton disabled={disabled} ref={btn4ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</NoteButton>
+          <Button {...notebuttonProps} ref={btn1ref} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</Button>
+          <Button {...notebuttonProps} ref={btn2ref} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</Button>
+          <Button {...notebuttonProps} ref={btn3ref} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</Button>
+          <Button {...notebuttonProps} ref={btn4ref} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</Button>
       </NoteButtonsContainer>
   );
 };
