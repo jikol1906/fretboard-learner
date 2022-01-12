@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
-import {space, SpaceProps } from "styled-system";
+import { Box } from "../../Styles/BaseStyles";
 
 
 
-export const FretboardContainer = styled.div`
+export const FretboardContainer = styled(Box)`
     margin: 0 auto;
     width: calc(63.25em - var(--rotation) * .1em);
     position: relative;
