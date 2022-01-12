@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useEffect } from "react";
 import useCountDown from "react-countdown-hook";
+import { Text } from "rebass/styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import NoteButtons from "../../components/NoteButtons/NotesButtons";
 import {
@@ -12,7 +13,6 @@ import {
   setNoteButtonValues,
   setPointers,
 } from "../../redux/appSlice";
-import { Text } from "../../Styles/Typography";
 import { Grid } from "../../Styles/BaseStyles";
 
 import {
@@ -80,11 +80,11 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       alignItems="center"
       gridTemplateColumns=" 1fr auto 1fr"
     >
-      <Text fontSize="2em" style={{ gridArea: "a1" }}>
+      <Text color="white" fontSize="2em" style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
       <NoteButtons disabled={timeLeft/1000 <= 0}/>
-      <Text fontSize="2em" style={{ gridArea: "a3" }}>
+      <Text color="white" fontSize="2em" style={{ gridArea: "a3" }}>
         {timeLeft/1000}
       </Text>
     </Grid>
