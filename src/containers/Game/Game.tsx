@@ -13,12 +13,13 @@ import {
   setPointers,
 } from "../../redux/appSlice";
 import { Text } from "../../Styles/Typography";
+import { Grid } from "../../Styles/BaseStyles";
+
 import {
   generateFretboardWithFlatsAndSharps,
   getRandomIntInclusive,
   shuffle,
 } from "../../Utils/Utils";
-import { GameContainer } from "./GameStyles";
 
 interface IGameProps {}
 
@@ -71,7 +72,14 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   },[])
 
   return (
-    <GameContainer>
+    <Grid
+      fontSize="min(1.3vw,1.7rem)"
+      gridGap="3em"
+      gridTemplateAreas="'a1 a2 a3'"
+      justifyItems="center"
+      alignItems="center"
+      gridTemplateColumns=" 1fr auto 1fr"
+    >
       <Text fontSize="2em" style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
@@ -79,7 +87,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       <Text fontSize="2em" style={{ gridArea: "a3" }}>
         {timeLeft/1000}
       </Text>
-    </GameContainer>
+    </Grid>
   );
 };
 
