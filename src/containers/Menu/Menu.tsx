@@ -35,13 +35,13 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   return (
       <Grid
         alignItems="center"
-        justifyItems={["center","start"]} 
+        justifyItems="center"
         justifyContent="center" 
         fontSize='clamp(.6rem,1.7vw,1rem)'
         gridColumnGap="8em"
         gridRowGap={["1.5em","2em"]}
         gridTemplateAreas={gridAreas}
-      >
+      > 
           <Label gridArea="l1" htmlFor="rotation">Fretboard rotation</Label>
           <Range  gridArea="i1" onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
           <Button gridArea="a2" fontSize='2em' onClick={e => dispatch(setGameStarted(true))}>START</Button>
