@@ -1,5 +1,5 @@
+import { Box } from "rebass/styled-components";
 import styled, { keyframes } from "styled-components";
-import { Box } from "../../Styles/BaseStyles";
 
 
 

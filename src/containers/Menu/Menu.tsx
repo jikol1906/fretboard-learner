@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { Button } from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
@@ -34,14 +33,14 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   ]
   
   return (
-      <Grid 
-        gridTemplateAreas={gridAreas} 
+      <Grid
         alignItems="center"
         justifyItems={["center","start"]} 
         justifyContent="center" 
-        gridRowGap={["1.5em","2em"]}
+        fontSize='clamp(.6rem,1.7vw,1rem)'
         gridColumnGap="5em"
-        style={{fontSize:'clamp(.6rem,1.7vw,1rem)'}}
+        gridRowGap={["1.5em","2em"]}
+        gridTemplateAreas={gridAreas}
       >
           <Label gridArea="l1" htmlFor="rotation">Fretboard rotation</Label>
           <Range  gridArea="i1" onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>

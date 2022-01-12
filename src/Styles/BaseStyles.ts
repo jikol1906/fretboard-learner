@@ -1,15 +1,10 @@
+import { Box } from "rebass/styled-components";
 import styled from "styled-components";
-import {gridArea, grid, GridProps, space, SpaceProps, flexbox, FlexboxProps, GridAreaProps, layout,LayoutProps, typography, TypographyProps } from "styled-system";
+import {gridArea, grid, GridProps,GridAreaProps,} from "styled-system";
 
-export const Box = styled.div<SpaceProps & GridProps & FlexboxProps & LayoutProps & TypographyProps>`
- ${space}
- ${grid}
- ${flexbox}
- ${layout}
- ${typography}
-`
 
-export const Grid = styled(Box)`
+export const Grid = styled(Box)<GridProps>`
+    ${grid}
     display: grid;
 `
 

@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { Box } from 'rebass/styled-components';
 import { useAppSelector } from '../../app/hooks';
 import { selectFretboardRotation, selectPointers } from '../../redux/appSlice';
-import { Box } from '../../Styles/BaseStyles';
+
 import { FretboardContainer, Pointer } from './FretboardStyles';
 import FretboardSvg from './FretboardSvg';
 
