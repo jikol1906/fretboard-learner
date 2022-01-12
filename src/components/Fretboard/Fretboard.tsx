@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useAppSelector } from '../../app/hooks';
 import { selectFretboardRotation, selectPointers } from '../../redux/appSlice';
 import { Box } from '../../Styles/BaseStyles';
-import { FretboardContainer, FretboardFixedHeightContainer, Pointer } from './FretboardStyles';
+import { FretboardContainer, Pointer } from './FretboardStyles';
 import FretboardSvg from './FretboardSvg';
 
 interface IFretboardProps {
