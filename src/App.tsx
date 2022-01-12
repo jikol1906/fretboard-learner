@@ -13,7 +13,15 @@ function App() {
   return (
     <>
       <GlobalStyle/>
-      {gameStarted && <StopButton onClick={_ => dispatch(setGameStarted(false))}/>}
+      {gameStarted && 
+      <StopButton 
+          position="fixed" 
+          top="0" 
+          right="0" 
+          p={[".6em",".8em"]} 
+          bg="transparent" 
+          onClick={_ => dispatch(setGameStarted(false))}/>
+        }
       <Fretboard/>
       {!gameStarted ? <Menu/> : <Game/>}
     </>

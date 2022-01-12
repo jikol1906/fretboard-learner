@@ -1,14 +1,9 @@
+import { Button } from "rebass/styled-components";
 import styled from "styled-components";
+import { PositionProps,position } from "styled-system";
 
-export const StopButton = styled.button`
-    
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    padding:.8em;
+export const StopButton = styled(Button)<PositionProps>`
+    ${position}
     font-size: 4rem;
     opacity: .5;
     cursor: pointer;
@@ -16,6 +11,7 @@ export const StopButton = styled.button`
 
     &:hover {
         color: white;
+        opacity: 1;
     }
     
     &:before,
@@ -26,8 +22,8 @@ export const StopButton = styled.button`
         top:50%;
         left:50%;
         display: block;
-        height:4px;
-        width:40px;
+        height:4%;
+        width:40%;
 
     }
 
