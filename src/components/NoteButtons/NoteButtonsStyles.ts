@@ -1,13 +1,9 @@
 import styled from "styled-components";
+import { Grid } from "../../Styles/BaseStyles";
 
-export const NoteButtonsContainer = styled.div`
-    
+export const NoteButtonsContainer = styled(Grid)`
     border: 0.25em solid rgba(255,255,255,.4);
     border-radius:999px;
-    display:grid;
-    grid-template-areas:"b1 b2 b3 b4";
-    grid-template-columns:repeat(4,1fr);
-    justify-self:stretch;
 `;
 
 interface NoteButtonProps {

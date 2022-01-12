@@ -77,7 +77,11 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
   },buttons)
   
   return (
-      <NoteButtonsContainer style={{gridArea:'a2'}}>
+      <NoteButtonsContainer 
+        style={{gridArea:'a2'}}
+        gridTemplateAreas="'b1 b2 b3 b4'"
+        gridTemplateColumns="repeat(4,1fr)"
+      >
           <NoteButton disabled={disabled} ref={btn1ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</NoteButton>
           <NoteButton disabled={disabled} ref={btn2ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</NoteButton>
           <NoteButton disabled={disabled} ref={btn3ref} wrong={wrongAnswerClicked} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</NoteButton>
