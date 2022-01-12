@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { Button } from 'rebass/styled-components';
+import { borderRadius, borderStyle } from 'styled-system';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
+import { Grid } from '../../Styles/BaseStyles';
 import AccidentalNote from '../Note/AccidentalNote';
-import { NoteButtonsContainer } from './NoteButtonsStyles';
 
 interface INoteButtonsProps {
   disabled:boolean
@@ -119,16 +120,22 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
   }
   
   return (
-      <NoteButtonsContainer 
+      <Grid 
         style={{gridArea:'a2'}}
         gridTemplateAreas="'b1 b2 b3 b4'"
         gridTemplateColumns="repeat(4,1fr)"
+        sx={{
+          borderWidth:'.25em',
+          borderStyle:'solid',
+          borderColor:'dimWhite',
+          borderRadius:'1000px',
+        }}
       >
           <Button {...notebuttonProps} ref={btn1ref} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</Button>
           <Button {...notebuttonProps} ref={btn2ref} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</Button>
           <Button {...notebuttonProps} ref={btn3ref} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</Button>
           <Button {...notebuttonProps} ref={btn4ref} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</Button>
-      </NoteButtonsContainer>
+      </Grid>
   );
 };
 
