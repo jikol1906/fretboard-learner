@@ -13,8 +13,10 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     fontSize="1em"
     sx={{
       borderRadius: '0.625em',
-      '&:hover': {
-        filter: 'brightness(1.05)'
+      transition: 'all .2s ease',
+      '&:hover,&:focus': {
+        filter: 'brightness(1.05)',
+        transform: 'scale(1.05) translateY(-4px)'
       }
     }}
     {...props} 
