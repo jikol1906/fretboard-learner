@@ -3,15 +3,19 @@ import { GridAreaProps } from "styled-system";
 import { Text } from "../../Styles/Typography";
     import { CheckboxLabel, StyledSlider } from "./CheckboxStyles";
 
-    interface ICheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+    interface ICheckboxProps extends React.HTMLAttributes<HTMLInputElement>  {
       onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     }
 
-    const Checkbox: React.FunctionComponent<ICheckboxProps & GridAreaProps> = ({style,gridArea,...rest}) => {
+    const Checkbox: 
+      React.FunctionComponent<ICheckboxProps & 
+      GridAreaProps & 
+      React.InputHTMLAttributes<HTMLInputElement> 
+      > = ({style,checked,gridArea,...rest}) => {
       
       return (
         <CheckboxLabel style={style}>
-          <input type="checkbox" {...rest}/>
+          <input checked={checked} type="checkbox" {...rest}/>
           <StyledSlider/>
         </CheckboxLabel>
       );

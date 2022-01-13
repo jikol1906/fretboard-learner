@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import { Label } from '../../components/Label/Label';
 import { Range } from '../../components/Range/Range';
-import { selectFretboardRotation, selectTimeBetween, setFretboardRotation, setGameStarted, setPracticemode, setTimeBetween } from '../../redux/appSlice';
+import { selectFretboardRotation, selectPracticeMode, selectTimeBetween, setFretboardRotation, setGameStarted, setPracticemode, setTimeBetween } from '../../redux/appSlice';
 import { Grid } from '../../Styles/BaseStyles';
 
 interface IMenuProps {
@@ -14,7 +14,7 @@ interface IMenuProps {
 const Menu: React.FunctionComponent<IMenuProps> = (props) => {
 
   const rotation = useAppSelector(selectFretboardRotation);
-  const timebetween = useAppSelector(selectTimeBetween);
+  const isPracticeMode = useAppSelector(selectPracticeMode);
   const dispatch = useAppDispatch();
 
   const gridAreas = [
@@ -47,7 +47,7 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
           <Range  gridArea="i1" onChange={e => dispatch(setFretboardRotation(+e.target.value))} type="range" min="0" max="70" value={rotation} step="1" id="rotation"/>
           <Button fontSize="2em" style={{gridArea:'a2', letterSpacing:"4px"}} onClick={e => dispatch(setGameStarted(true))}>START</Button>
           <Label gridArea="l2" htmlFor="checkbox">Practice mode</Label>
-          <Checkbox style={{gridArea:'i2'}} id="checkbox" onChange={(e) => dispatch(setPracticemode(e.target.checked))}/>
+          <Checkbox style={{gridArea:'i2'}} checked={isPracticeMode} id="checkbox" onChange={(e) => dispatch(setPracticemode(e.target.checked))}/>
       </Grid>
   );
 };
