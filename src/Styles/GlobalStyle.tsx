@@ -30,7 +30,6 @@ body {
 
 
 html {
-    font-family: 'Nanum Gothic', sans-serif;
     height: 100%;
     background: var(--color-primary);
     /* fallback for old browsers */
