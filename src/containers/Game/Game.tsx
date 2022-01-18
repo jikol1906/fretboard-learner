@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import useCountDown from "react-countdown-hook";
 import { Text } from "rebass/styled-components";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -7,9 +7,7 @@ import NoteButtons from "../../components/NoteButtons/NotesButtons";
 import { StopButton } from "../../components/StopButton/StopButtonStyles";
 import {
   resetCorrectAndTotalAnswers,
-  selectGameStarted,
   selectPracticeMode,
-  selectTimeBetween,
   selectTotalandCorrectAnswered,
   setCorrectAnswer,
   setGameStarted,
@@ -40,7 +38,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
 
 
 
-  const newRound = () => {
+  const newRound = useCallback(() => {
     const randInt1 = getRandomIntInclusive(0, fretboard[0].length - 1);
     const randInt2 = getRandomIntInclusive(0, fretboard.length - 1);
     const correctAnswer = fretboard[randInt2][randInt1];
@@ -59,13 +57,13 @@ const Game: React.FunctionComponent<IGameProps> = () => {
     dispatch(setNoteButtonValues(notesForAnswerButtons));
     dispatch(setCorrectAnswer(fretboard[randInt2][randInt1]));
     dispatch(setPointers([[randInt1, randInt2]]));
-  }
+  },[dispatch])
 
   useEffect(() => {
     newRound();
     return () => {
     };
-  }, [total]);
+  }, [total,newRound]);
 
   useEffect(() => {
     if(!isPracticeMode) {
@@ -75,7 +73,7 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       dispatch(setPointers([]))
       dispatch(resetCorrectAndTotalAnswers())
     }
-  },[])
+  },[dispatch,isPracticeMode,start])
 
   return (
     <>
