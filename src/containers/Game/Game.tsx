@@ -8,6 +8,7 @@ import { StopButton } from "../../components/StopButton/StopButtonStyles";
 import {
   resetCorrectAndTotalAnswers,
   selectGameStarted,
+  selectPracticeMode,
   selectTimeBetween,
   selectTotalandCorrectAnswered,
   setCorrectAnswer,
@@ -34,6 +35,7 @@ fretboard = fretboard.map((s) => s.map((n) => n.replace(/\d+/g, "")));
 const Game: React.FunctionComponent<IGameProps> = () => {
   const dispatch = useAppDispatch();
   const [total, correct] = useAppSelector(selectTotalandCorrectAnswered);
+  const isPracticeMode = useAppSelector(selectPracticeMode);
   const [timeLeft, { start }] = useCountDown(60000, 1000);
 
 
@@ -66,7 +68,9 @@ const Game: React.FunctionComponent<IGameProps> = () => {
   }, [total]);
 
   useEffect(() => {
-    start();
+    if(!isPracticeMode) {
+      start();
+    }
     return () => {
       dispatch(setPointers([]))
       dispatch(resetCorrectAndTotalAnswers())
@@ -93,10 +97,10 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       <Text color="white" fontSize="2em" style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
-      <NoteButtons disabled={timeLeft/1000 <= 0}/>
-      <Text color="white" fontSize="2em" style={{ gridArea: "a3" }}>
+      <NoteButtons disabled={!isPracticeMode && timeLeft/1000 <= 0}/>
+      {!isPracticeMode && <Text color="white" fontSize="2em" style={{ gridArea: "a3" }}>
         {timeLeft/1000}
-      </Text>
+      </Text>}
     </Grid>
     </>
   );
