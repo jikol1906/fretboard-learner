@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { Button } from 'rebass/styled-components';
-import { borderRadius, borderStyle } from 'styled-system';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setCorrectAnswer, setWrongAnswerClicked } from '../../redux/appSlice';
+import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setWrongAnswerClicked } from '../../redux/appSlice';
 import { Grid } from '../../Styles/BaseStyles';
 import AccidentalNote from '../Note/AccidentalNote';
 
@@ -53,7 +52,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
 
   useEffect(() => {
     return () => {dispatch(setWrongAnswerClicked(false))};
-  },[])
+  },[dispatch])
 
   useEffect(() => {
     const handleKeydown = (ev:KeyboardEvent) => {
@@ -76,7 +75,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
     return () => {
       document.removeEventListener('keydown',handleKeydown)
     }
-  },buttons)
+  },[buttons])
 
   const notebuttonProps = {
     disabled,

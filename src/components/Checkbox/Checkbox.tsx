@@ -1,6 +1,5 @@
     import * as React from "react";
 import { GridAreaProps } from "styled-system";
-import { Text } from "../../Styles/Typography";
     import { CheckboxLabel, StyledSlider } from "./CheckboxStyles";
 
     interface ICheckboxProps extends React.HTMLAttributes<HTMLInputElement>  {

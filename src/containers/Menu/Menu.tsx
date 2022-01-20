@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import { Label } from '../../components/Label/Label';
 import { Range } from '../../components/Range/Range';
-import { selectFretboardRotation, selectPracticeMode, selectTimeBetween, setFretboardRotation, setGameStarted, setPracticemode, setTimeBetween } from '../../redux/appSlice';
+import { selectFretboardRotation, selectPracticeMode, setFretboardRotation, setGameStarted, setPracticemode } from '../../redux/appSlice';
 import { Grid } from '../../Styles/BaseStyles';
 
 interface IMenuProps {
