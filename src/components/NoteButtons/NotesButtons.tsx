@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { Button } from 'rebass/styled-components';
+import { Button, Flex } from 'rebass/styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setWrongAnswerClicked } from '../../redux/appSlice';
 import { Grid } from '../../Styles/BaseStyles';
@@ -115,26 +115,25 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
     '&:nth-child(3)::after': {content: "'3'"},
     '&:nth-child(4)::after': {content: "'4'"}
   }
-    
+
   }
+
   
   return (
-      <Grid 
-        style={{gridArea:'a2'}}
-        gridTemplateAreas="'b1 b2 b3 b4'"
-        gridTemplateColumns="repeat(4,1fr)"
+      <Flex
         sx={{
           borderWidth:'.25em',
           borderStyle:'solid',
           borderColor:'dimWhite',
           borderRadius:'1000px',
+          gridArea:'a2'
         }}
       >
-          <Button {...notebuttonProps} ref={btn1ref} onClick={() => btnClicked(buttons[0])} style={{gridArea:'b1'}}>{b1}</Button>
-          <Button {...notebuttonProps} ref={btn2ref} onClick={() => btnClicked(buttons[1])} style={{gridArea:'b2'}}>{b2}</Button>
-          <Button {...notebuttonProps} ref={btn3ref} onClick={() => btnClicked(buttons[2])} style={{gridArea:'b3'}}>{b3}</Button>
-          <Button {...notebuttonProps} ref={btn4ref} onClick={() => btnClicked(buttons[3])} style={{gridArea:'b4'}}>{b4}</Button>
-      </Grid>
+          <Button {...notebuttonProps} ref={btn1ref} onClick={() => btnClicked(buttons[0])}>{b1}</Button>
+          <Button {...notebuttonProps} ref={btn2ref} onClick={() => btnClicked(buttons[1])}>{b2}</Button>
+          <Button {...notebuttonProps} ref={btn3ref} onClick={() => btnClicked(buttons[2])}>{b3}</Button>
+          <Button {...notebuttonProps} ref={btn4ref} onClick={() => btnClicked(buttons[3])}>{b4}</Button>
+      </Flex> 
   );
 };
 
