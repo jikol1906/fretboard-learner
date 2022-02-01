@@ -11,6 +11,6 @@ export const Symbol = styled.span`
   position: absolute;
     font-size: 0.6em;
     top: 40.2%;
-    left: 43%;
+    left: 55%;
 `
 
