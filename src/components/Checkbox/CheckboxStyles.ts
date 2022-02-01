@@ -29,10 +29,14 @@ export const CheckboxLabel = styled.label`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  --slider-container-height: 1.56em;
+  --slider-container-height: 3em;
   --slider-container-width: calc(var(--slider-container-height) * 2);
   --slider-size: calc(var(--slider-container-height) * 0.7);
   --slider-padding: calc(var(--slider-container-height) * 0.15);
+  
+  @media only screen and (min-width:${props => props.theme.breakpoints[0]}) {
+    --slider-container-height: 1.56em;
+  }
 
   & input {
     display: none;
