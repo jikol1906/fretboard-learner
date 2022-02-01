@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { Button, Flex } from 'rebass/styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setWrongAnswerClicked } from '../../redux/appSlice';
-import { Grid } from '../../Styles/BaseStyles';
 import AccidentalNote from '../Note/AccidentalNote';
 
 interface INoteButtonsProps {

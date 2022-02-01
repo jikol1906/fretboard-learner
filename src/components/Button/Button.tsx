@@ -7,13 +7,12 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
   
   return (
     <RebassButton 
-    p="1.1em 3em" 
+    p={[".7em 2em","1.1em 3em"]} 
     bg="tertiary"
     color="white"
-    fontSize="1em"
     sx={{
       borderRadius: '0.625em',
-      transition: 'all .2s ease',
+      transition: 'transform .2s ease',
       '&:hover,&:focus': {
         filter: 'brightness(1.05)',
         transform: 'scale(1.05) translateY(-4px)'
