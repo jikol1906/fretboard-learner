@@ -87,18 +87,18 @@ const Game: React.FunctionComponent<IGameProps> = () => {
     <Grid
       fontSize="min(1.3vw,1.7rem)"
       gridGap="3em"
-      gridTemplateAreas={["'a1 a3' 'a2 a2'","'a1 a2 a3'"]}
+      gridTemplateAreas={["'a1 a3' 'a2 a2'",null,"'a1 a2 a3'"]}
       justifyItems="center"
       alignItems="center"
-      gridTemplateColumns={["1fr 1fr","1fr auto 1fr"]}
-      gridTemplateRows="min-content 1fr"
-      padding="1rem"
+      gridTemplateColumns={["1fr 1fr",null,"1fr auto 1fr"]}
+      gridTemplateRows={["min-content 1fr","min-content min-content","min-content"]}
+      padding={["2rem","0 4rem"]}
     >
-      <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a1" }}>
+      <Text as="p" color="white" fontSize={["6em","4em","2em"]} style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
       <NoteButtons disabled={!isPracticeMode && timeLeft/1000 <= 0}/>
-      <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a3" }}>
+      <Text as="p" color="white" fontSize={["6em","4em","2em"]} style={{ gridArea: "a3" }}>
         {isPracticeMode ? "∞" : timeLeft/1000}
       </Text>
     </Grid>

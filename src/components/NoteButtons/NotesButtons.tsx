@@ -81,7 +81,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
     disabled,
     fontSize:["6em","3em"],
     p:".8em",
-    width:["100%","5ch"],
+    width:["100%","auto","5ch"],
     bg:"transparent",
     color: wrongAnswerClicked ? "red" : "white",
     sx: {
@@ -101,7 +101,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
       },
       '&::after': {
         position:" absolute",
-        display:['none','block'],
+        display:['none',null,'block'],
         boxSizing: 'border-box',
         color:"white",
         borderRadius: '100px',
@@ -121,7 +121,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
   
   return (
       <Grid
-      gridTemplateColumns={["1fr 1fr","repeat(4,auto)"]}
+      gridTemplateColumns={["1fr 1fr","repeat(4,1fr)","repeat(4,auto)"]}
       alignSelf="stretch"
       justifySelf={["stretch",null]}
         sx={{
