@@ -17,7 +17,7 @@ body, html {
 
 #root {
   height: 100%;
-  padding:2rem;
+
 }
 
 

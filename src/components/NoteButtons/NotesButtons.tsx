@@ -122,6 +122,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
   return (
       <Grid
       gridTemplateColumns={["1fr 1fr","repeat(4,auto)"]}
+      alignSelf="stretch"
       justifySelf={["stretch",null]}
         sx={{
           borderWidth:'8px',

@@ -36,8 +36,8 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
   return (
       <Grid
         alignItems="center"
+        alignSelf="start"
         justifyItems="center"
-        padding={["0 4rem",null]}
         justifyContent={[null,"center"]}
         fontSize='clamp(.6rem,1.7vw,1rem)'
         gridColumnGap="8em"

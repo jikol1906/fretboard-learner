@@ -91,6 +91,8 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       justifyItems="center"
       alignItems="center"
       gridTemplateColumns={["1fr 1fr","1fr auto 1fr"]}
+      gridTemplateRows="min-content 1fr"
+      padding="1rem"
     >
       <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a1" }}>
         {correct}/{total}
