@@ -96,9 +96,9 @@ const Game: React.FunctionComponent<IGameProps> = () => {
         {correct}/{total}
       </Text>
       <NoteButtons disabled={!isPracticeMode && timeLeft/1000 <= 0}/>
-      {!isPracticeMode && <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a3" }}>
-        {timeLeft/1000}
-      </Text>}
+      <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a3" }}>
+        {isPracticeMode ? "∞" : timeLeft/1000}
+      </Text>
     </Grid>
     </>
   );
