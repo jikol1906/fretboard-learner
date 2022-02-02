@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { Button, Flex } from 'rebass/styled-components';
+import { Button } from 'rebass/styled-components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { incrementCorrectAnswered, incrementTotalAnswered, selectCorrectAnswer, selectNoteButtons, selectWrongAnswerClicked, setWrongAnswerClicked } from '../../redux/appSlice';
+import { Grid } from '../../Styles/BaseStyles';
 import AccidentalNote from '../Note/AccidentalNote';
 
 interface INoteButtonsProps {
@@ -78,22 +79,22 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
 
   const notebuttonProps = {
     disabled,
-    fontSize:["3.7em","3em"],
+    fontSize:["6em","3em"],
     p:".8em",
-    width:"5ch",
+    width:["100%","5ch"],
     bg:"transparent",
     color: wrongAnswerClicked ? "red" : "white",
     sx: {
-      boxSizing:'content-box',
+      boxSizing:['border-box','content-box'],
       cursor:'pointer',
       position: 'relative',
       whiteSpace: 'nowrap',
-      '&:not(:last-child)': {
+      '&:not(:last-child)': [null,{
         borderRightWidth: '0.1em',
         borderStyle: 'solid',
         borderColor: 'dimWhite',
         borderRadius:0
-      },
+      }],
       '&:disabled': {
         opacity: '.5',
         cursor: 'not-allowed'
@@ -119,12 +120,14 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
 
   
   return (
-      <Flex
+      <Grid
+      gridTemplateColumns={["1fr 1fr","repeat(4,auto)"]}
+      justifySelf={["stretch",null]}
         sx={{
           borderWidth:'.25em',
           borderStyle:'solid',
           borderColor:'dimWhite',
-          borderRadius:'1000px',
+          borderRadius:['20px','1000px'],
           gridArea:'a2'
         }}
       >
@@ -132,7 +135,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
           <Button {...notebuttonProps} ref={btn2ref} onClick={() => btnClicked(buttons[1])}>{b2}</Button>
           <Button {...notebuttonProps} ref={btn3ref} onClick={() => btnClicked(buttons[2])}>{b3}</Button>
           <Button {...notebuttonProps} ref={btn4ref} onClick={() => btnClicked(buttons[3])}>{b4}</Button>
-      </Flex> 
+      </Grid> 
   );
 };
 
