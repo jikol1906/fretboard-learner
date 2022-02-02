@@ -89,12 +89,10 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
       cursor:'pointer',
       position: 'relative',
       whiteSpace: 'nowrap',
-      '&:not(:last-child)': [null,{
-        borderRightWidth: '0.1em',
-        borderStyle: 'solid',
-        borderColor: 'dimWhite',
-        borderRadius:0
-      }],
+      borderRadius:0,
+      borderWidth: '0.1em',
+      borderStyle: 'solid',
+      borderColor: 'dimWhite',
       '&:disabled': {
         opacity: '.5',
         cursor: 'not-allowed'
@@ -113,7 +111,15 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
     '&:nth-child(1)::after': {content: "'1'"},
     '&:nth-child(2)::after': {content: "'2'"},
     '&:nth-child(3)::after': {content: "'3'"},
-    '&:nth-child(4)::after': {content: "'4'"}
+    '&:nth-child(4)::after': {content: "'4'"},
+    '&:nth-child(1)': {
+      borderTopLeftRadius:[null,'999px'],
+      borderBottomLeftRadius:[null,'999px'],
+    },
+    '&:nth-child(4)': {
+      borderTopRightRadius:[null,'999px'],
+      borderBottomRightRadius:[null,'999px'],
+    },
   }
 
   }
@@ -128,7 +134,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
           borderWidth:'8px',
           borderStyle:'solid',
           borderColor:'dimWhite',
-          borderRadius:['20px','1000px'],
+          borderRadius:[null,'1000px'],
           gridArea:'a2'
         }}
       >
