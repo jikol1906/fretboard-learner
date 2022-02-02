@@ -87,7 +87,6 @@ const Game: React.FunctionComponent<IGameProps> = () => {
     <Grid
       fontSize="min(1.3vw,1.7rem)"
       gridGap="3em"
-      marginTop={["2rem",null]}
       gridTemplateAreas={["'a1 a3' 'a2 a2'","'a1 a2 a3'"]}
       justifyItems="center"
       alignItems="center"

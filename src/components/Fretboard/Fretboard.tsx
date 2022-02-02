@@ -22,7 +22,7 @@ const Fretboard: React.FunctionComponent<IFretboardProps> = (props) => {
     const styles = {'--rotation':`${rotation}`} as React.CSSProperties
 
     return (
-        <Box mb={gameStarted ? "2em" : ["7em","4em"]} height="16em" fontSize="min(1.4vw,1rem)">
+        <Box mb={gameStarted ? ["4em","2em"] : ["7em","4em"]} height="16em" fontSize="min(1.4vw,1rem)">
             <FretboardContainer style={styles}>
                 <FretboardSvg/>
                 {pointers}
