@@ -99,8 +99,8 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
         cursor: 'not-allowed'
       },
       '&::after': {
-        content:"''",
         position:" absolute",
+        display:['none','block'],
         boxSizing: 'border-box',
         color:"white",
         borderRadius: '100px',
