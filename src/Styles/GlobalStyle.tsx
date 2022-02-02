@@ -16,14 +16,13 @@ body, html {
 }
 
 #root {
-  margin:auto;
-  padding:2rem 0;
+  height: 100%;
+  padding:2rem;
 }
 
 
 body {
   height:100%;
-  display: flex;
 }
 
 
