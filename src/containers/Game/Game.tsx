@@ -92,11 +92,11 @@ const Game: React.FunctionComponent<IGameProps> = () => {
       alignItems="center"
       gridTemplateColumns={["1fr 1fr","1fr auto 1fr"]}
     >
-      <Text as="p" color="white" fontSize="2em" style={{ gridArea: "a1" }}>
+      <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a1" }}>
         {correct}/{total}
       </Text>
       <NoteButtons disabled={!isPracticeMode && timeLeft/1000 <= 0}/>
-      {!isPracticeMode && <Text as="p" color="white" fontSize="2em" style={{ gridArea: "a3" }}>
+      {!isPracticeMode && <Text as="p" color="white" fontSize={["6em","2em"]} style={{ gridArea: "a3" }}>
         {timeLeft/1000}
       </Text>}
     </Grid>
