@@ -78,7 +78,7 @@ const NoteButtons: React.FunctionComponent<INoteButtonsProps> = ({disabled}) => 
 
   const notebuttonProps = {
     disabled,
-    fontSize:"3em",
+    fontSize:["3.7em","3em"],
     p:".8em",
     width:"5ch",
     bg:"transparent",
