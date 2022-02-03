@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import GuessNote from './containers/GuessNote';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from 'styled-components';
 import Theme from './Styles/Theme';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={Theme}>
       <Provider store={store}>
-        <GuessNote />
+        <App />
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
